@@ -45,6 +45,7 @@ namespace BSBD_lab2 {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
+            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -56,6 +57,9 @@ namespace BSBD_lab2 {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
+                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
+                    this.InitExpressions();
+                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -82,6 +86,7 @@ namespace BSBD_lab2 {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -163,6 +168,7 @@ namespace BSBD_lab2 {
         public override global::System.Data.DataSet Clone() {
             Lab_1DataSet cln = ((Lab_1DataSet)(base.Clone()));
             cln.InitVars();
+            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -260,7 +266,7 @@ namespace BSBD_lab2 {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableАппараты = new АппаратыDataTable();
             base.Tables.Add(this.tableАппараты);
-            this.tableИгроки = new ИгрокиDataTable();
+            this.tableИгроки = new ИгрокиDataTable(false);
             base.Tables.Add(this.tableИгроки);
             this.tableИстория_игр = new История_игрDataTable();
             base.Tables.Add(this.tableИстория_игр);
@@ -345,6 +351,12 @@ namespace BSBD_lab2 {
             }
             xs.Add(dsSchema);
             return type;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitExpressions() {
+            this.Игроки._ID_ФИОColumn.Expression = "[ID игрока] + \' \' + ФИО";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -660,12 +672,23 @@ namespace BSBD_lab2 {
             
             private global::System.Data.DataColumn columnБаланс;
             
+            private global::System.Data.DataColumn _columnID_ФИО;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ИгрокиDataTable() {
+            public ИгрокиDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ИгрокиDataTable(bool initExpressions) {
                 this.TableName = "Игроки";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -719,6 +742,14 @@ namespace BSBD_lab2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn _ID_ФИОColumn {
+                get {
+                    return this._columnID_ФИО;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -754,12 +785,27 @@ namespace BSBD_lab2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ИгрокиRow AddИгрокиRow(string ФИО, decimal Баланс, string _ID_ФИО) {
+                ИгрокиRow rowИгрокиRow = ((ИгрокиRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        ФИО,
+                        Баланс,
+                        _ID_ФИО};
+                rowИгрокиRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowИгрокиRow);
+                return rowИгрокиRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ИгрокиRow AddИгрокиRow(string ФИО, decimal Баланс) {
                 ИгрокиRow rowИгрокиRow = ((ИгрокиRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         ФИО,
-                        Баланс};
+                        Баланс,
+                        null};
                 rowИгрокиRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowИгрокиRow);
                 return rowИгрокиRow;
@@ -792,6 +838,7 @@ namespace BSBD_lab2 {
                 this.columnID_игрока = base.Columns["ID игрока"];
                 this.columnФИО = base.Columns["ФИО"];
                 this.columnБаланс = base.Columns["Баланс"];
+                this._columnID_ФИО = base.Columns["ID+ФИО"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -803,6 +850,10 @@ namespace BSBD_lab2 {
                 base.Columns.Add(this.columnФИО);
                 this.columnБаланс = new global::System.Data.DataColumn("Баланс", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnБаланс);
+                this._columnID_ФИО = new global::System.Data.DataColumn("ID+ФИО", typeof(string), null, global::System.Data.MappingType.Element);
+                this._columnID_ФИО.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnID_ФИО");
+                this._columnID_ФИО.ExtendedProperties.Add("Generator_UserColumnName", "ID+ФИО");
+                base.Columns.Add(this._columnID_ФИО);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_игрока}, true));
                 this.columnID_игрока.AutoIncrement = true;
@@ -813,6 +864,7 @@ namespace BSBD_lab2 {
                 this.columnФИО.AllowDBNull = false;
                 this.columnФИО.MaxLength = 2147483647;
                 this.columnБаланс.AllowDBNull = false;
+                this._columnID_ФИО.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -831,6 +883,12 @@ namespace BSBD_lab2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(ИгрокиRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this._ID_ФИОColumn.Expression = "[ID игрока] + \' \' + ФИО";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1418,6 +1476,34 @@ namespace BSBD_lab2 {
                 set {
                     this[this.tableИгроки.БалансColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string _ID_ФИО {
+                get {
+                    try {
+                        return ((string)(this[this.tableИгроки._ID_ФИОColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID+ФИО\' в таблице \'Игроки\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableИгроки._ID_ФИОColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Is_ID_ФИОNull() {
+                return this.IsNull(this.tableИгроки._ID_ФИОColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Set_ID_ФИОNull() {
+                this[this.tableИгроки._ID_ФИОColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2197,7 +2283,7 @@ SELECT [ID аппарата], Название, [Размер ставки] FROM
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual Lab_1DataSet.ИгрокиDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Lab_1DataSet.ИгрокиDataTable dataTable = new Lab_1DataSet.ИгрокиDataTable();
+            Lab_1DataSet.ИгрокиDataTable dataTable = new Lab_1DataSet.ИгрокиDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

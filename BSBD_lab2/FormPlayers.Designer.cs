@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label iD_игрокаLabel;
-            System.Windows.Forms.Label фИОLabel;
-            System.Windows.Forms.Label балансLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPlayers));
             this.lab_1DataSet = new BSBD_lab2.Lab_1DataSet();
             this.игрокиBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -50,44 +47,18 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.игрокиBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.iD_игрокаTextBox = new System.Windows.Forms.TextBox();
-            this.фИОTextBox = new System.Windows.Forms.TextBox();
-            this.балансTextBox = new System.Windows.Forms.TextBox();
-            iD_игрокаLabel = new System.Windows.Forms.Label();
-            фИОLabel = new System.Windows.Forms.Label();
-            балансLabel = new System.Windows.Forms.Label();
+            this.toolStripButtonOK = new System.Windows.Forms.ToolStripButton();
+            this.игрокиDataGridView = new System.Windows.Forms.DataGridView();
+            this.iDИгрокаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.фИОDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.балансDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDФИОDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lab_1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.игрокиBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.игрокиBindingNavigator)).BeginInit();
             this.игрокиBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.игрокиDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // iD_игрокаLabel
-            // 
-            iD_игрокаLabel.AutoSize = true;
-            iD_игрокаLabel.Location = new System.Drawing.Point(101, 109);
-            iD_игрокаLabel.Name = "iD_игрокаLabel";
-            iD_игрокаLabel.Size = new System.Drawing.Size(59, 13);
-            iD_игрокаLabel.TabIndex = 1;
-            iD_игрокаLabel.Text = "ID игрока:";
-            // 
-            // фИОLabel
-            // 
-            фИОLabel.AutoSize = true;
-            фИОLabel.Location = new System.Drawing.Point(101, 135);
-            фИОLabel.Name = "фИОLabel";
-            фИОLabel.Size = new System.Drawing.Size(37, 13);
-            фИОLabel.TabIndex = 3;
-            фИОLabel.Text = "ФИО:";
-            // 
-            // балансLabel
-            // 
-            балансLabel.AutoSize = true;
-            балансLabel.Location = new System.Drawing.Point(101, 161);
-            балансLabel.Name = "балансLabel";
-            балансLabel.Size = new System.Drawing.Size(47, 13);
-            балансLabel.TabIndex = 5;
-            балансLabel.Text = "Баланс:";
             // 
             // lab_1DataSet
             // 
@@ -129,7 +100,8 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.игрокиBindingNavigatorSaveItem});
+            this.игрокиBindingNavigatorSaveItem,
+            this.toolStripButtonOK});
             this.игрокиBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.игрокиBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.игрокиBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -137,7 +109,7 @@
             this.игрокиBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.игрокиBindingNavigator.Name = "игрокиBindingNavigator";
             this.игрокиBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.игрокиBindingNavigator.Size = new System.Drawing.Size(377, 25);
+            this.игрокиBindingNavigator.Size = new System.Drawing.Size(543, 25);
             this.игрокиBindingNavigator.TabIndex = 0;
             this.игрокиBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -234,43 +206,65 @@
             this.игрокиBindingNavigatorSaveItem.Name = "игрокиBindingNavigatorSaveItem";
             this.игрокиBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.игрокиBindingNavigatorSaveItem.Text = "Сохранить данные";
-            this.игрокиBindingNavigatorSaveItem.Click += new System.EventHandler(this.игрокиBindingNavigatorSaveItem_Click_2);
+            this.игрокиBindingNavigatorSaveItem.Click += new System.EventHandler(this.игрокиBindingNavigatorSaveItem_Click);
             // 
-            // iD_игрокаTextBox
+            // toolStripButtonOK
             // 
-            this.iD_игрокаTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.игрокиBindingSource, "ID игрока", true));
-            this.iD_игрокаTextBox.Location = new System.Drawing.Point(166, 106);
-            this.iD_игрокаTextBox.Name = "iD_игрокаTextBox";
-            this.iD_игрокаTextBox.Size = new System.Drawing.Size(100, 20);
-            this.iD_игрокаTextBox.TabIndex = 2;
+            this.toolStripButtonOK.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonOK.Image")));
+            this.toolStripButtonOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButtonOK.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOK.Name = "toolStripButtonOK";
+            this.toolStripButtonOK.Size = new System.Drawing.Size(74, 22);
+            this.toolStripButtonOK.Text = "Выбрать";
+            this.toolStripButtonOK.Click += new System.EventHandler(this.toolStripButtonOK_Click);
             // 
-            // фИОTextBox
+            // игрокиDataGridView
             // 
-            this.фИОTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.игрокиBindingSource, "ФИО", true));
-            this.фИОTextBox.Location = new System.Drawing.Point(166, 132);
-            this.фИОTextBox.Name = "фИОTextBox";
-            this.фИОTextBox.Size = new System.Drawing.Size(100, 20);
-            this.фИОTextBox.TabIndex = 4;
+            this.игрокиDataGridView.AutoGenerateColumns = false;
+            this.игрокиDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.игрокиDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDИгрокаDataGridViewTextBoxColumn,
+            this.фИОDataGridViewTextBoxColumn,
+            this.балансDataGridViewTextBoxColumn,
+            this.iDФИОDataGridViewTextBoxColumn});
+            this.игрокиDataGridView.DataSource = this.игрокиBindingSource;
+            this.игрокиDataGridView.Location = new System.Drawing.Point(12, 28);
+            this.игрокиDataGridView.Name = "игрокиDataGridView";
+            this.игрокиDataGridView.Size = new System.Drawing.Size(519, 333);
+            this.игрокиDataGridView.TabIndex = 7;
             // 
-            // балансTextBox
+            // iDИгрокаDataGridViewTextBoxColumn
             // 
-            this.балансTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.игрокиBindingSource, "Баланс", true));
-            this.балансTextBox.Location = new System.Drawing.Point(166, 158);
-            this.балансTextBox.Name = "балансTextBox";
-            this.балансTextBox.Size = new System.Drawing.Size(100, 20);
-            this.балансTextBox.TabIndex = 6;
+            this.iDИгрокаDataGridViewTextBoxColumn.DataPropertyName = "ID игрока";
+            this.iDИгрокаDataGridViewTextBoxColumn.HeaderText = "ID игрока";
+            this.iDИгрокаDataGridViewTextBoxColumn.Name = "iDИгрокаDataGridViewTextBoxColumn";
+            this.iDИгрокаDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // фИОDataGridViewTextBoxColumn
+            // 
+            this.фИОDataGridViewTextBoxColumn.DataPropertyName = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.Name = "фИОDataGridViewTextBoxColumn";
+            // 
+            // балансDataGridViewTextBoxColumn
+            // 
+            this.балансDataGridViewTextBoxColumn.DataPropertyName = "Баланс";
+            this.балансDataGridViewTextBoxColumn.HeaderText = "Баланс";
+            this.балансDataGridViewTextBoxColumn.Name = "балансDataGridViewTextBoxColumn";
+            // 
+            // iDФИОDataGridViewTextBoxColumn
+            // 
+            this.iDФИОDataGridViewTextBoxColumn.DataPropertyName = "ID+ФИО";
+            this.iDФИОDataGridViewTextBoxColumn.HeaderText = "ID+ФИО";
+            this.iDФИОDataGridViewTextBoxColumn.Name = "iDФИОDataGridViewTextBoxColumn";
+            this.iDФИОDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FormPlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 282);
-            this.Controls.Add(iD_игрокаLabel);
-            this.Controls.Add(this.iD_игрокаTextBox);
-            this.Controls.Add(фИОLabel);
-            this.Controls.Add(this.фИОTextBox);
-            this.Controls.Add(балансLabel);
-            this.Controls.Add(this.балансTextBox);
+            this.ClientSize = new System.Drawing.Size(543, 373);
+            this.Controls.Add(this.игрокиDataGridView);
             this.Controls.Add(this.игрокиBindingNavigator);
             this.Name = "FormPlayers";
             this.Text = "Игроки";
@@ -280,6 +274,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.игрокиBindingNavigator)).EndInit();
             this.игрокиBindingNavigator.ResumeLayout(false);
             this.игрокиBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.игрокиDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,8 +299,11 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton игрокиBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox iD_игрокаTextBox;
-        private System.Windows.Forms.TextBox фИОTextBox;
-        private System.Windows.Forms.TextBox балансTextBox;
+        private System.Windows.Forms.ToolStripButton toolStripButtonOK;
+        private System.Windows.Forms.DataGridView игрокиDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDИгрокаDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn балансDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDФИОDataGridViewTextBoxColumn;
     }
 }

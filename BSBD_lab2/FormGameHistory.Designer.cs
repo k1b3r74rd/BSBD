@@ -47,6 +47,9 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.история_игрBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBoxFind = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonFind = new System.Windows.Forms.ToolStripButton();
             this.история_игрDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +58,7 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBoxFind = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.lab_1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.история_игрBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.история_игрBindingNavigator)).BeginInit();
@@ -102,7 +106,10 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.история_игрBindingNavigatorSaveItem});
+            this.история_игрBindingNavigatorSaveItem,
+            this.toolStripSeparator1,
+            this.toolStripTextBoxFind,
+            this.toolStripButtonFind});
             this.история_игрBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.история_игрBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.история_игрBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -209,6 +216,28 @@
             this.история_игрBindingNavigatorSaveItem.Text = "Сохранить данные";
             this.история_игрBindingNavigatorSaveItem.Click += new System.EventHandler(this.история_игрBindingNavigatorSaveItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripTextBoxFind
+            // 
+            this.toolStripTextBoxFind.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxFind.Name = "toolStripTextBoxFind";
+            this.toolStripTextBoxFind.Size = new System.Drawing.Size(100, 25);
+            // 
+            // toolStripButtonFind
+            // 
+            this.toolStripButtonFind.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFind.Image")));
+            this.toolStripButtonFind.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButtonFind.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFind.Name = "toolStripButtonFind";
+            this.toolStripButtonFind.Size = new System.Drawing.Size(62, 22);
+            this.toolStripButtonFind.Text = "Поиск";
+            this.toolStripButtonFind.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripButtonFind.Click += new System.EventHandler(this.toolStripButtonFind_Click);
+            // 
             // история_игрDataGridView
             // 
             this.история_игрDataGridView.AutoGenerateColumns = false;
@@ -270,11 +299,23 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "Результат";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
+            // checkBoxFind
+            // 
+            this.checkBoxFind.AutoSize = true;
+            this.checkBoxFind.Location = new System.Drawing.Point(455, 5);
+            this.checkBoxFind.Name = "checkBoxFind";
+            this.checkBoxFind.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxFind.TabIndex = 2;
+            this.checkBoxFind.Text = "Фильтр";
+            this.checkBoxFind.UseVisualStyleBackColor = true;
+            this.checkBoxFind.CheckedChanged += new System.EventHandler(this.checkBoxFind_CheckedChanged);
+            // 
             // FormGameHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxFind);
             this.Controls.Add(this.история_игрDataGridView);
             this.Controls.Add(this.история_игрBindingNavigator);
             this.Name = "FormGameHistory";
@@ -318,5 +359,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxFind;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFind;
+        private System.Windows.Forms.CheckBox checkBoxFind;
     }
 }

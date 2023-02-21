@@ -47,5 +47,75 @@ namespace BSBD_lab2
             Show();
             Activate();
         }
+        string GetSelectedFieldName()
+        {
+            return история_игрDataGridView.Columns[история_игрDataGridView.CurrentCell.ColumnIndex].DataPropertyName;
+        }
+
+        private void toolStripButtonFind_Click(object sender, EventArgs e)
+        {
+            if (toolStripTextBoxFind.Text == "")
+            {
+                MessageBox.Show("Вы ничего не задали", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int indexPos;
+            try
+            {
+                indexPos = история_игрBindingSource.Find(GetSelectedFieldName(), toolStripTextBoxFind.Text);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Ошибка поиска \n" + err.Message);
+                return;
+            }
+
+            if (indexPos > -1)
+            {
+                история_игрBindingSource.Position = indexPos;
+            }
+            else
+            {
+                MessageBox.Show("Таких игр нет", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                история_игрBindingSource.Position = 0;
+            }
+        }
+
+        private void checkBoxFind_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxFind.Checked)
+            {
+                if (toolStripTextBoxFind.Text == "")
+                {
+                    MessageBox.Show("Вы ничего не задали", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    try
+                    {
+                        история_игрBindingSource.Filter =
+                        GetSelectedFieldName() + "='" + toolStripTextBoxFind.Text + "'";
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show("Ошибка фильтрации \n" +
+                        err.Message);
+                    }
+                }
+            }
+            else
+            {
+                история_игрBindingSource.Filter = "";
+            }
+
+            if (история_игрBindingSource.Count == 0)
+            {
+                MessageBox.Show("Нет таких");
+                история_игрBindingSource.Filter = "";
+                checkBoxFind.Checked = false;
+
+            }
+        }
     }
 }

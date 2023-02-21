@@ -39,12 +39,20 @@ namespace BSBD_lab2
 
         private void списокИгроковToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // "Игроки"
             FormPlayers.fp.ShowForm();
         }
 
         private void историяИгрToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // "История игр"
             FormGameHistory.fgh.ShowForm();
+        }
+
+        private void игрокиИсторияИгрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // "Игроки + История игр"
+            FormPlayersNGameHistory.fpngh.ShowForm();
         }
     }
 }

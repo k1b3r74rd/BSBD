@@ -29,3 +29,4 @@ G:\0.PROJECTS\C#\TUSUR\BSBD\BSBD_lab2\bin\Debug\ru\EntityFramework.SqlServer.res
 G:\0.PROJECTS\C#\TUSUR\BSBD\BSBD_lab2\obj\Debug\BSBD_lab2.FormGamesList.resources
 G:\0.PROJECTS\C#\TUSUR\BSBD\BSBD_lab2\obj\Debug\BSBD_lab2.FormPlayers.resources
 G:\0.PROJECTS\C#\TUSUR\BSBD\BSBD_lab2\obj\Debug\BSBD_lab2.FormGameHistory.resources
+G:\0.PROJECTS\C#\TUSUR\BSBD\BSBD_lab2\obj\Debug\BSBD_lab2.FormPlayersNGameHistory.resources
