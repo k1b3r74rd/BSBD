@@ -30,3 +30,4 @@ G:\0.PROJECTS\C#\TUSUR\BSBD\BSBD_lab2\obj\Debug\BSBD_lab2.FormGamesList.resource
 G:\0.PROJECTS\C#\TUSUR\BSBD\BSBD_lab2\obj\Debug\BSBD_lab2.FormPlayers.resources
 G:\0.PROJECTS\C#\TUSUR\BSBD\BSBD_lab2\obj\Debug\BSBD_lab2.FormGameHistory.resources
 G:\0.PROJECTS\C#\TUSUR\BSBD\BSBD_lab2\obj\Debug\BSBD_lab2.FormPlayersNGameHistory.resources
+G:\0.PROJECTS\C#\TUSUR\BSBD\BSBD_lab2\obj\Debug\BSBD_lab2.FormSQL.resources

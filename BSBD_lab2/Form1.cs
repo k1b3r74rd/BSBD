@@ -54,5 +54,11 @@ namespace BSBD_lab2
             // "Игроки + История игр"
             FormPlayersNGameHistory.fpngh.ShowForm();
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            // "Запросы SQL"
+            FormSQL.fsql.ShowForm();
+        }
     }
 }

@@ -38,6 +38,7 @@
             this.историяИгрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.базыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.игрокиИсторияИгрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.справочникToolStripMenuItem,
-            this.базыToolStripMenuItem});
+            this.базыToolStripMenuItem,
+            this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -127,6 +129,13 @@
             this.игрокиИсторияИгрToolStripMenuItem.Text = "Игроки + История игр";
             this.игрокиИсторияИгрToolStripMenuItem.Click += new System.EventHandler(this.игрокиИсторияИгрToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(92, 20);
+            this.toolStripMenuItem2.Text = "Запросы SQL";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +163,7 @@
         private System.Windows.Forms.ToolStripMenuItem историяИгрToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem базыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem игрокиИсторияИгрToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }
 
